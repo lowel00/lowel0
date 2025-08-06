@@ -6,16 +6,16 @@ body, html { font-family: 'Helvetica Neue', Arial, sans-serif; width: 100%; heig
 .fixed-background { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; background-image: url('default_photo.jpg'); background-size: cover; background-position: center; }
 .fixed-background::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(76, 28, 46, 0.85); }
 
-/* YENİ: Sabit, Saydamlaşan Marka Başlığı */
+/* Sabit, Saydamlaşan Marka Başlığı */
 .fixed-brand-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     padding: 20px 5%;
-    z-index: 5; /* Arka planın üstünde, ürünlerin altında */
-    pointer-events: none; /* Üzerinden tıklama ve kaydırmaya izin verir */
-    transition: opacity 0.3s ease-out; /* Saydamlaşma efektini yumuşatır */
+    z-index: 5; 
+    pointer-events: none; 
+    transition: opacity 0.3s ease-out;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,7 +24,7 @@ body, html { font-family: 'Helvetica Neue', Arial, sans-serif; width: 100%; heig
 }
 
 .brand-title { color: #FF85C1; font-size: 2.5rem; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
-.contact-area { display: flex; align-items: center; gap: 1.5rem; font-size: 1rem; color: white; pointer-events: auto; /* Linklerin tıklanabilir olmasını sağlar */ }
+.contact-area { display: flex; align-items: center; gap: 1.5rem; font-size: 1rem; color: white; pointer-events: auto; }
 .instagram-link { display: flex; align-items: center; gap: 8px; text-decoration: none; color: white; transition: color 0.3s; }
 .instagram-link:hover { color: #FF85C1; }
 .instagram-link img { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #FF85C1; object-fit: cover; }
@@ -38,9 +38,8 @@ body, html { font-family: 'Helvetica Neue', Arial, sans-serif; width: 100%; heig
     height: 100vh; 
     overflow-y: auto; 
     background-color: transparent; 
-    z-index: 10; /* Başlığın üzerine çıkması için */
+    z-index: 10;
     position: relative;
-    /* YENİ: Başlığın altında başlaması için üst boşluk */
     padding: 120px 20px 40px 20px;
 }
 
