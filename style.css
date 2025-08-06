@@ -1,93 +1,25 @@
 /* Genel Ayarlar */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body, html {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: #2b1d24;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body, html { font-family: 'Helvetica Neue', Arial, sans-serif; width: 100%; height: 100%; overflow: hidden; background-color: #2b1d24; }
 
 /* Sabit Arka Plan ve Opak Katman */
-.fixed-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    background-image: url('default_photo.jpg');
-    background-size: cover;
-    background-position: center;
-}
+.fixed-background { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; background-image: url('default_photo.jpg'); background-size: cover; background-position: center; }
+.fixed-background::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(76, 28, 46, 0.85); }
 
-.fixed-background::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(76, 28, 46, 0.85);
-}
+/* Yatay Kaydırıcı (5 kategori = 500%) */
+.slider-container { display: flex; width: 500%; height: 100vh; transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1); }
 
-/* Üst Navigasyon Menüsü */
-.navbar { background-color: rgba(18, 18, 18, 0.8); backdrop-filter: blur(10px); width: 100%; height: 60px; position: fixed; top: 0; z-index: 1000; display: flex; justify-content: center; align-items: center; border-bottom: 1px solid #333; }
-.nav-links { display: flex; gap: 20px; }
-.nav-link { color: #aaa; text-decoration: none; padding: 10px 15px; border-radius: 20px; font-size: 1rem; font-weight: 500; transition: all 0.3s ease; }
-.nav-link.active, .nav-link:hover { background-color: tomato; color: white; }
+/* Kategori Slaytı (Her slayt %20 genişliğinde) */
+.category-slide { width: 20%; height: 100vh; overflow-y: auto; padding: 40px 20px 20px 20px; background-color: transparent; }
 
-/* GÜNCELLENDİ: Yatay Kaydırıcı (4 kategori = 400%) */
-.slider-container {
-    display: flex;
-    width: 400%; /* Toplam 4 kategori olduğu için %400 */
-    height: 100vh;
-    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-/* GÜNCELLENDİ: Kategori Slaytı (Şeffaf kaydırma alanı) */
-.category-slide {
-    /* DÜZELTME: Her slaydın genişliği, ana kapsayıcının 1/4'ü (%25) olarak ayarlandı. */
-    width: 25%;
-    height: 100vh;
-    overflow-y: auto;
-    padding: 60px 20px 20px 20px;
-    background-color: transparent;
-}
-
-/* Marka ve İletişim Bilgileri Başlığı */
-.brand-header {
-    position: relative;
-    z-index: 2;
-    padding: 20px;
-    margin-bottom: 2rem;
-    color: white;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-/* GÜNCELLENDİ: Pembe renk tonu daha açık ve canlı hale getirildi */
-.brand-title {
+/* YENİ: Kategori Başlığı Stili */
+.category-title {
+    color: #FF85C1; /* Açık pembe renk */
     font-size: 2.5rem;
-    color: #FF85C1; /* Bir önceki açık pembe tonu */
+    text-align: center;
+    margin-bottom: 2rem;
     text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
-
-.contact-area { display: flex; align-items: center; gap: 1.5rem; font-size: 1rem; }
-.instagram-link { display: flex; align-items: center; gap: 8px; text-decoration: none; color: white; transition: color 0.3s; }
-.instagram-link:hover { color: #FF85C1; }
-.instagram-link img { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #FF85C1; object-fit: cover; }
 
 /* Kaydırma Çubuğu Stilleri */
 .category-slide::-webkit-scrollbar { width: 8px; }
@@ -99,7 +31,7 @@ body, html {
 .product-card { background-color: rgba(42, 42, 42, 0.8); backdrop-filter: blur(5px); border-radius: 10px; padding: 1.5rem; width: 100%; max-width: 500px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.1); }
 .product-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 5px; margin-bottom: 1rem; }
 .product-card h3 { font-size: 1.5rem; color: #fff; }
-.product-card .ingredients { font-size: 0.9rem; color: #aaa; margin: 0.5rem 0; }
+.product-card .ingredients { font-size: 0.9rem; color: #aaa; margin: 0.5rem 0; min-height: 2.5em; /* Açıklama olmasa bile boşluk bırakır */ }
 .product-card .price { font-size: 1.3rem; font-weight: bold; margin-top: 1rem; color: tomato; }
 
 /* Navigasyon Okları */
