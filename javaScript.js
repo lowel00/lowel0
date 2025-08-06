@@ -3,31 +3,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.category-slide');
     const nextBtn = document.getElementById('nextBtn');
     const prevBtn = document.getElementById('prevBtn');
-    const navLinks = document.querySelectorAll('.nav-link');
+    
+    // YENİ: Sabit başlığı seçiyoruz
+    const fixedHeader = document.getElementById('fixed-brand-header');
     
     let currentIndex = 0;
     const totalSlides = slides.length;
 
-    // Kategoriye gitme fonksiyonu
     function goToCategory(index) {
         // Slider'ı doğru konuma kaydır
         sliderContainer.style.transform = `translateX(-${index * 100 / totalSlides}%)`;
         currentIndex = index;
-        updateNavigation();
-    }
-    
-    // Navigasyon elemanlarını güncelleme fonksiyonu (oklar ve menü linkleri)
-    function updateNavigation() {
+        
         // Okların durumunu güncelle
         prevBtn.disabled = currentIndex === 0;
         nextBtn.disabled = currentIndex === totalSlides - 1;
 
-        // Üst menüdeki aktif linki güncelle
-        navLinks.forEach((link, index) => {
-            link.classList.toggle('active', index === currentIndex);
-        });
+        // YENİ: Kategori değiştiğinde, yeni sayfanın kaydırma pozisyonuna göre
+        // başlığın saydamlığını anında ayarla.
+        updateHeaderOpacity();
     }
+    
+    // YENİ: Başlığın saydamlığını güncelleyen fonksiyon
+    function updateHeaderOpacity() {
+        // Sadece aktif olan slaydın kaydırma pozisyonunu al
+        const currentScrollTop = slides[currentIndex].scrollTop;
+        const fadeDistance = 200; // 200 piksel kaydırınca tamamen yok olacak
 
+        // Yeni saydamlığı hesapla (1'den 0'a doğru)
+        let newOpacity = 1 - (currentScrollTop / fadeDistance);
+        
+        // Saydamlığın 0'ın altına düşmesini engelle
+        fixedHeader.style.opacity = Math.max(0, newOpacity);
+    }
+    
     // Olay Dinleyicileri
     nextBtn.addEventListener('click', () => {
         if (currentIndex < totalSlides - 1) {
@@ -41,13 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Üst menü linklerine tıklama olayı ekle
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault(); // Sayfanın başına gitmesini engelle
-            const index = parseInt(e.target.dataset.index, 10);
-            goToCategory(index);
-        });
+    // YENİ: Her bir slayta kaydırma (scroll) dinleyicisi ekle
+    slides.forEach(slide => {
+        slide.addEventListener('scroll', updateHeaderOpacity);
     });
 
     // Başlangıç durumu
