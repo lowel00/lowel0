@@ -6,16 +6,17 @@ body, html { font-family: 'Helvetica Neue', Arial, sans-serif; width: 100%; heig
 .fixed-background { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; background-image: url('default_photo.jpg'); background-size: cover; background-position: center; }
 .fixed-background::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(76, 28, 46, 0.85); }
 
-/* Sabit, Saydamlaşan Marka Başlığı */
+/* DÜZELTİLDİ: Sabit Marka Başlığı */
 .fixed-brand-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     padding: 20px 5%;
-    z-index: 5; 
-    pointer-events: none; 
-    transition: opacity 0.3s ease-out;
+    z-index: 10; /* Ürünlerin ÜSTÜNDE durması için yüksek z-index */
+    background: rgba(43, 29, 36, 0.8); /* Ürünlerin arkasından geçtiğini göstermek için yarı şeffaf arkaplan */
+    backdrop-filter: blur(5px); /* Arkaplanı bulanıklaştırma efekti */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,7 +25,7 @@ body, html { font-family: 'Helvetica Neue', Arial, sans-serif; width: 100%; heig
 }
 
 .brand-title { color: #FF85C1; font-size: 2.5rem; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
-.contact-area { display: flex; align-items: center; gap: 1.5rem; font-size: 1rem; color: white; pointer-events: auto; }
+.contact-area { display: flex; align-items: center; gap: 1.5rem; font-size: 1rem; color: white; }
 .instagram-link { display: flex; align-items: center; gap: 8px; text-decoration: none; color: white; transition: color 0.3s; }
 .instagram-link:hover { color: #FF85C1; }
 .instagram-link img { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #FF85C1; object-fit: cover; }
@@ -32,15 +33,15 @@ body, html { font-family: 'Helvetica Neue', Arial, sans-serif; width: 100%; heig
 /* Yatay Kaydırıcı (5 kategori = 500%) */
 .slider-container { display: flex; width: 500%; height: 100vh; transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1); }
 
-/* Kategori Slaytı */
+/* DÜZELTİLDİ: Kategori Slaytı */
 .category-slide { 
     width: 20%; 
     height: 100vh; 
     overflow-y: auto; 
     background-color: transparent; 
-    z-index: 10;
+    z-index: 5; /* Başlığın ALTINDA kalması için daha düşük z-index */
     position: relative;
-    padding: 120px 20px 40px 20px;
+    padding: 120px 20px 40px 20px; /* Üstteki başlık için boşluk bırak */
 }
 
 /* Kaydırma Çubuğu Stilleri */
