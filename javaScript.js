@@ -8,8 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalSlides = slides.length;
 
     function goToCategory(index) {
+        // Hatalı/Bozuk animasyon kodları tamamen kaldırıldı.
+        // Sadece kaydırma işlemi yapılıyor.
         sliderContainer.style.transform = `translateX(-${index * 100 / totalSlides}%)`;
         currentIndex = index;
+        
         prevBtn.disabled = currentIndex === 0;
         nextBtn.disabled = currentIndex === totalSlides - 1;
     }
