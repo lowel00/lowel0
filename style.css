@@ -3,29 +3,41 @@
 body, html { font-family: 'Helvetica Neue', Arial, sans-serif; width: 100%; height: 100%; overflow: hidden; background-color: #2b1d24; }
 
 /* Sabit Arka Plan ve Opak Katman */
-.fixed-background { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; background-image: url('default_photo.jpg'); background-size: cover; background-position: center; }
+.fixed-background { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; background-image: url('default_photo.jpg'); background-size: cover; background-position: center; }
 .fixed-background::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(76, 28, 46, 0.85); }
 
-/* DÜZELTİLDİ: Sabit Marka Başlığı */
-.fixed-brand-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 5%;
-    z-index: 10; /* Ürünlerin ÜSTÜNDE durması için yüksek z-index */
-    background: rgba(43, 29, 36, 0.8); /* Ürünlerin arkasından geçtiğini göstermek için yarı şeffaf arkaplan */
-    backdrop-filter: blur(5px); /* Arkaplanı bulanıklaştırma efekti */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+/* GÜNCELLENDİ: Marka Başlığı (Artık ortalı) */
+.brand-header {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    margin-bottom: 2rem;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    /* Değişiklikler burada başlıyor */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+    flex-direction: column; /* Öğeleri alt alta sırala */
+    align-items: center;   /* Yatayda ortala */
+    justify-content: center; /* Dikeyde ortala */
+    gap: 0.5rem; /* Başlık ve iletişim bilgisi arasına boşluk koy */
 }
 
-.brand-title { color: #FF85C1; font-size: 2.5rem; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
-.contact-area { display: flex; align-items: center; gap: 1.5rem; font-size: 1rem; color: white; }
+.brand-title { 
+    color: #FF85C1; 
+    font-size: 2.5rem; 
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    text-align: center; /* Her ihtimale karşı metni de ortala */
+}
+.contact-area { 
+    display: flex; 
+    align-items: center; 
+    gap: 1.5rem; 
+    font-size: 1rem;
+    flex-wrap: wrap; /* Küçük ekranlarda sığmazsa alt alta gelmesini sağlar */
+    justify-content: center; /* İçindeki öğeleri de ortala */
+}
 .instagram-link { display: flex; align-items: center; gap: 8px; text-decoration: none; color: white; transition: color 0.3s; }
 .instagram-link:hover { color: #FF85C1; }
 .instagram-link img { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #FF85C1; object-fit: cover; }
@@ -33,15 +45,13 @@ body, html { font-family: 'Helvetica Neue', Arial, sans-serif; width: 100%; heig
 /* Yatay Kaydırıcı (5 kategori = 500%) */
 .slider-container { display: flex; width: 500%; height: 100vh; transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1); }
 
-/* DÜZELTİLDİ: Kategori Slaytı */
+/* Kategori Slaytı */
 .category-slide { 
     width: 20%; 
     height: 100vh; 
     overflow-y: auto; 
     background-color: transparent; 
-    z-index: 5; /* Başlığın ALTINDA kalması için daha düşük z-index */
-    position: relative;
-    padding: 120px 20px 40px 20px; /* Üstteki başlık için boşluk bırak */
+    padding: 40px 20px 40px 20px;
 }
 
 /* Kaydırma Çubuğu Stilleri */
