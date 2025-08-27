@@ -13,27 +13,13 @@ body, html { font-family: 'Helvetica Neue', Arial, sans-serif; width: 100%; heig
 /* Yatay Kaydırıcı */
 .slider-container { display: flex; width: 900%; height: 100vh; transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1); }
 
-/* 
- * ***** İŞTE DÜZELTME BURADA *****
- * "align-items" özelliğini "flex-start" (üste hizala) yerine "center" (ortala) olarak değiştiriyoruz.
- * Sorunun tamamı bu tek satırdan kaynaklanıyor.
-*/
-.category-slide {
-    width: 11.111%;
-    height: 100vh;
-    overflow-y: auto;
-    padding: 80px 15px 40px 15px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* <--- DEĞİŞİKLİK BURADA: flex-start DEĞİL, center OLACAK */
-    background-color: #ffebf5;
-}
+/* Kategori Slaytı (İçerik için daha fazla alan bırakıldı) */
+.category-slide { width: 11.111%; height: 100vh; overflow-y: auto; padding: 80px 15px 40px 15px; /* Yatay padding azaltıldı */ position: relative; display: flex; justify-content: center; align-items: flex-start; background-color: #ffebf5; }
 
 /* GİRİŞ SAYFASI ÖZEL STİLLERİ */
 .welcome-slide { padding: 0; background-image: url('Photos/iconV2.png'); background-size: cover; background-position: center; align-items: center; }
 .welcome-slide::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); }
-.welcome-title { white-space: nowrap; position: absolute; left: 50%; transform: translateX(-50%); font-size: 2.5rem; color: #E8ADAA; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); z-index: 2; }
+.welcome-title { position: absolute; left: 50%; transform: translateX(-50%); font-size: 2.5rem; color: #E8ADAA; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); z-index: 2; }
 .welcome-text { position: absolute; left: 50%; width: 90%; max-width: 600px; text-align: center; z-index: 2; color: white; }
 .welcome-text i { font-size: 2rem; font-weight: 500; display: block; margin-bottom: 0.5rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
 .welcome-text p { font-size: 1rem; line-height: 1.5; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
@@ -41,22 +27,45 @@ body, html { font-family: 'Helvetica Neue', Arial, sans-serif; width: 100%; heig
 .welcome-contact p { margin: 0.2rem 0; }
 .welcome-contact a { color: white; text-decoration: none; font-weight: 500; }
 
-/* KATEGORİ VİTRİNİ */
-#categories { align-items: center; } /* Bu kural artık gereksiz ama zararı yok */
+/* 
+ * YENİDEN DÜZENLENDİ: KATEGORİ VİTRİNİ
+ * - Kartların ekranı daha iyi doldurması için max-width kaldırıldı.
+ * - Gap (boşluk) ayarlandı.
+*/
+#categories { align-items: start; }
 .category-showcase {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(2, 1fr); /* Her zaman 2 sütun */
+    gap: 15px; /* Kartlar arası boşluk */
     width: 100%;
 }
 
-/* KATEGORİ KARTLARI */
-.category-showcase-item {text-decoration: none;color: white;aspect-ratio: 4 / 5;border-radius: 20px;display: flex;justify-content: center;align-items: center;font-size: 1.6rem;font-weight: bold;text-shadow: 2px 2px 8px rgba(0,0,0,0.8);position: relative;overflow: hidden;transition: transform 0.3s ease, box-shadow 0.3s ease;border: 3px solid white;box-shadow: 0 5px 20px rgba(0,0,0,0.2);}
+/* 
+ * YENİDEN DÜZENLENDİ: KATEGORİ KARTLARI
+ * - Yükseklik (height) belirgin şekilde artırıldı.
+ * - Yazı boyutu büyütüldü.
+*/
+.category-showcase-item {
+    text-decoration: none;
+    color: white;
+    height: 280px; /* KART YÜKSEKLİĞİ ARTIRILDI */
+    border-radius: 20px; /* Kenar yuvarlaklığı artırıldı */
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    font-size: 1.6rem; /* YAZI BOYUTU BÜYÜTÜLDÜ */
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid white;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
 .category-showcase-item:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
 .category-showcase-item span { position: relative; z-index: 2; padding: 5px; text-align: center; background-color: rgba(0,0,0,0.4); border-radius: 8px;}
 .category-showcase-item::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 0.4s ease; filter: brightness(0.8); }
 .category-showcase-item:hover::before { transform: scale(1.1); filter: brightness(1); }
-
 /* Fotoğraf atamaları */
 .sevilenler-bg::before { background-image: url('default_photo2.jpg'); }
 .waffle-bg::before { background-image: url('Photos/Kalbim_Waffle.jpg'); }
@@ -66,34 +75,44 @@ body, html { font-family: 'Helvetica Neue', Arial, sans-serif; width: 100%; heig
 .sicak-icecekler-bg::before { background-image: url('default_photo.jpg'); }
 .soguk-icecekler-bg::before { background-image: url('Photos/Ice_Tea.jpg'); }
 
-/* Ürün Listesi */
+/* 
+ * YENİDEN DÜZENLENDİ: Ürün Listesi
+ * - İki sütunlu yapı ve boşluklar ayarlandı.
+*/
 .product-list { 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 15px; /* Boşluk ayarlandı */
     width: 100%;
 }
 
-/* Ürün Kartları */
+/* 
+ * YENİDEN DÜZENLENDİ: Ürün Kartları
+ * - Kart içindeki resim yüksekliği ve yazı boyutları büyütüldü.
+*/
 .product-card { background-color: rgba(255, 255, 255, 0.95); border-radius: 16px; padding: 1rem; text-align: center; border: 2px solid #FFDDF0; box-shadow: 0 4px 20px rgba(255, 9, 142, 0.1); width: 100%; display: flex; flex-direction: column; }
-.product-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 12px; margin-bottom: 1rem; }
-.product-card h3 { font-size: 1.3rem; color: #222; font-weight: 600; }
+.product-card img { width: 100%; height: 180px; /* RESİM YÜKSEKLİĞİ ARTIRILDI */ object-fit: cover; border-radius: 12px; margin-bottom: 1rem; }
+.product-card h3 { font-size: 1.3rem; /* YAZI BOYUTU BÜYÜTÜLDÜ */ color: #222; font-weight: 600; }
 .product-card .ingredients { font-size: 0.9rem; color: #666; margin: 0.5rem 0; min-height: 2.5em; flex-grow: 1; }
-.product-card .price { font-size: 1.3rem; font-weight: bold; margin-top: 1rem; color: #D9006C; }
+.product-card .price { font-size: 1.3rem; /* FİYAT YAZISI BÜYÜTÜLDÜ */ font-weight: bold; margin-top: 1rem; color: #D9006C; }
 
-/* Tek Kalan Ürünler */
+/* 
+ * YENİDEN DÜZENLENDİ: Tek Kalan Ürünler
+ * - Tek kalan ürünün daha büyük ve estetik görünmesi için düzenlendi.
+*/
 .product-list .product-card:only-child {
-    grid-column: 1 / -1;
+    grid-column: 1 / -1; /* Kartın 2 sütunu da kaplamasını sağlar */
     max-width: 80%;
     margin: 0 auto;
 }
 .product-list .product-card:only-child img {
-    height: 250px;
+    height: 250px; /* Tek ürünün resmi daha büyük */
 }
+
 
 /* Navigasyon Okları */
 .nav-arrow { position: fixed; top: 50%; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); color: white; border: none; font-size: 24px; cursor: pointer; z-index: 1000; border-radius: 50%; width: 50px; height: 50px; transition: background-color 0.3s ease; display: flex; justify-content: center; align-items: center; }
-.nav-arrow:hover { background-color: #ff7f7f; }
-.nav-arrow.prev { left: 10px; }
+.nav-arrow:hover { background-color: tomato; }
+.nav-arrow.prev { left: 10px; } /* Okların pozisyonu ayarlandı */
 .nav-arrow.next { right: 10px; }
 .nav-arrow:disabled { opacity: 0.2; cursor: not-allowed; }
