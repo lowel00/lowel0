@@ -1,43 +1,76 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('.category-nav a');
-    const sections = document.querySelectorAll('.category-section');
+    const sliderContainer = document.querySelector('.slider-container');
+    const slides = document.querySelectorAll('.category-slide');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const navLinks = document.querySelectorAll('.main-nav a');
+    const homeCategoryLinks = document.querySelectorAll('.category-showcase a');
+    
+    // Anasayfa tıklandığında kategori vitrinine git
+    const welcomeSlide = document.getElementById('home');
+    if (welcomeSlide) {
+        welcomeSlide.addEventListener('click', () => {
+            goToCategory(1); // 1. index'teki kategori vitrinine git
+        });
+    }
 
-    // Yumuşak kaydırma işlevselliği
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+
+    function goToCategory(index) {
+        if (index < 0 || index >= totalSlides) return;
+        sliderContainer.style.transform = `translateX(-${index * 100 / totalSlides}%)`;
+        currentIndex = index;
+        
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === totalSlides - 1;
+
+        // Hangi linkin aktif olacağını belirle
+        navLinks.forEach((link, i) => {
+            link.classList.toggle('active', i === index);
+        });
+        
+        // ***************************************************************
+        // ***** YENİ EKLENEN KOD BAŞLANGICI *****
+        // ***************************************************************
+        
+        // Aktif olan linki bul
+        const activeLink = navLinks[index];
+        
+        if (activeLink) {
+            // scrollIntoView metodu ile aktif linki görünür alana kaydır
+            activeLink.scrollIntoView({
+                behavior: 'smooth',  // Animasyonlu (yumuşak) bir kaydırma için
+                inline: 'center',    // Yatay olarak tam ortaya hizala
+                block: 'nearest'     // Dikey hizalamayı bozma
+            });
+        }
+        
+        // ***************************************************************
+        // ***** YENİ EKLENEN KOD BİTİŞİ *****
+        // ***************************************************************
+    }
+    
+    nextBtn.addEventListener('click', () => goToCategory(currentIndex + 1));
+    prevBtn.addEventListener('click', () => goToCategory(currentIndex - 1));
+
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', (e) => {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+            const index = parseInt(link.dataset.index);
+            goToCategory(index);
         });
     });
 
-    // Kullanıcı kaydırdıkça aktif linki değiştirme işlevselliği
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                // Önce tüm linklerden 'active' classını kaldır
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                });
-                // Sadece doğru linke 'active' classını ekle
-                const activeLink = document.querySelector(`.category-nav a[href="#${id}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
-            }
+    // Kategori vitrinindeki linkler için event listener
+    homeCategoryLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const index = parseInt(link.dataset.index);
+            goToCategory(index);
         });
-    }, {
-        rootMargin: '-20% 0px -80% 0px' // Ekranın üst %20'sine giren bölümü aktif say
     });
 
-    sections.forEach(section => {
-        observer.observe(section);
-    });
+    // Başlangıç durumu
+    goToCategory(0);
 });

@@ -5,99 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pink Waffle & Kumpir Menüsü</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Photos/icon.jpg" type="image/jpg">
 </head>
 <body>
 
-    <!-- Sabit Arka Plan -->
-    <div class="fixed-background"></div>
+    <header class="main-header">
+        <div class="brand-logo">Pink Waffle & Kumpir</div>
+        <nav class="main-nav">
+            <a href="#" data-index="0" class="nav-link active">Anasayfa</a>
+            <a href="#" data-index="1" class="nav-link">Kategoriler</a>
+            <a href="#" data-index="2" class="nav-link">⭐ En Sevilenler</a>
+            <a href="#" data-index="3" class="nav-link">Waffle</a>
+            <a href="#" data-index="4" class="nav-link">Kumpir</a>
+            <a href="#" data-index="5" class="nav-link">Krep</a>
+            <a href="#" data-index="6" class="nav-link">Pastalar</a>
+            <a href="#" data-index="7" class="nav-link">Sıcak İçecekler</a>
+            <a href="#" data-index="8" class="nav-link">Soğuk İçecekler</a>
+        </nav>
+    </header>
 
-    <!-- YENİ: Yapışkan Kategori Navigasyon Menüsü -->
-    <nav class="category-nav">
-        <a href="#en-sevilenler" class="nav-link active">⭐ En Sevilenler</a>
-        <a href="#waffle" class="nav-link">Waffle</a>
-        <a href="#kumpir" class="nav-link">Kumpir</a>
-        <a href="#tatlilar" class="nav-link">Tatlılar</a>
-        <a href="#icecekler" class="nav-link">İçecekler</a>
-    </nav>
-
-    <main class="content-container">
-        <!-- Marka Başlığı -->
-        <header class="brand-header">
-            <h1 class="brand-title">Pink Waffle & Kumpir</h1>
-            <div class="contact-area">
-                <p>📞 0555 123 45 67</p>
-                <a href="https://www.instagram.com/pinkwafflekumpir/" target="_blank" rel="noopener noreferrer" class="instagram-link">
-                    <img src="default_photo.jpg" alt="Instagram Logosu">
-                    <span>@pinkwaffle</span>
-                </a>
+    <main class="slider-container">
+        <!-- SLAYT 0: GİRİŞ / REKLAM SAYFASI -->
+        <section id="home" class="category-slide welcome-slide">
+             <h1 class="welcome-title" style="top: 80px;">Pink Waffle & Kumpir</h1>
+            <div class="welcome-text" style="top: 40%; transform: translate(-50%, -50%);">
+                <i>Hoş geldiniz</i>
+                <p>"Bir yandan tatlı krizine ilaç gibi waffle, diğer yanda açlığa en eğlenceli çözüm kumpir... Seç, keyfini çıkar!"</p>
             </div>
-        </header>
-
-        <!-- KATEGORİ 1: EN SEVİLENLER -->
-        <section id="en-sevilenler" class="category-section">
-            <h2 class="category-title">Bu Restoranın En Sevilenleri</h2>
-            <div class="product-grid">
-                <div class="product-card"> <img src="default_photo.jpg" alt="Bardak Waffle"> <h3>Bardak Waffle</h3> <p class="ingredients">Belçika Çikolatası,Beyaz Çikolata, Çilek, Muz, Fındık Parçaları, Toz Antep Fıstığı</p> <p class="price">150 TL</p> </div>
-                <div class="product-card"> <img src="default_photo.jpg" alt="Kumpir"> <h3>Kumpir</h3> <p class="ingredients"></p> <p class="price">230 TL</p> </div>
-                <div class="product-card"> <img src="default_photo.jpg" alt="Kendin Yap Waffle"> <h3>Kendin Yap Waffle</h3> <p class="ingredients">Kendi seçeceğin ürünlerle kendi lezzetini oluştur</p> <p class="price">230 TL</p> </div>
-                <div class="product-card"> <img src="Photos/doubleWaffle.png" alt="Double Waffle"> <h3>Double Waffle</h3> <p class="ingredients">Nutella,Belçika çikolatası,Beyaz Çikolata, Muz, Kivi, Çilek, Toz Antep Fıstığı, Sütlü Damla Çikolata, Bitter Damla Çikolata</p> <p class="price">260 TL</p> </div>
-                <div class="product-card"> <img src="default_photo.jpg" alt="Çikolataşk Waffle"> <h3>Çikolataşk Waffle</h3> <p class="ingredients">Belçika Çikolatası, Nutella, Bitter Çikolata, Muz, Kivi, Çilek, Ananas, Pirinç Patlağı,Sütlü Damla Çikolata, Beyaz Damla Çikolata, Bitter Damla Çikolata, Toz Antep Fıstığı</p> <p class="price">240 TL</p> </div>
+            <div class="welcome-contact" style="bottom: 0px;">
+                <p><a href="tel:+905015710411">📞 501 571 04 11</a></p>
+                <p><a href="tel:+905060905148">📞 506 090 51 48</a></p>
             </div>
         </section>
 
-        <!-- KATEGORİ 2: WAFFLE -->
-        <section id="waffle" class="category-section">
-            <h2 class="category-title">Waffle</h2>
-            <div class="product-grid">
-                 <div class="product-card"> <img src="default_photo.jpg" alt="Kendin Yap Waffle"> <h3>Kendin Yap Waffle</h3> <p class="ingredients">Kendi seçeceğin ürünlerle kendi lezzetini oluştur</p> <p class="price">230 TL</p> </div>
-                <div class="product-card"> <img src="default_photo.jpg" alt="Pink Waffle"> <h3>Pink Waffle</h3> <p class="ingredients">Nutella,Belçika çikolatası, Çilek ,Muz,Kivi,Çilek,Ananas,Frambuazlı Damla çikolata,Pirinç patlağı,Toz Antep Fıstığı</p> <p class="price">230 TL</p> </div>
-                <div class="product-card"> <img src="Photos/Kalbim_Waffle.jpg" alt="Kalbim Waffle"> <h3>Kalbim Waffle</h3> <p class="ingredients">Belçika Çikolatası, Bitter çikolata, Beyaz çikolata, Muz, Kivi, Çilek</p> <p class="price">230 TL</p> </div>
-                <div class="product-card"> <img src="default_photo.jpg" alt="Çikolataşk Waffle"> <h3>Çikolataşk Waffle</h3> <p class="ingredients">Belçika Çikolatası, Nutella, Bitter Çikolata, Muz, Kivi, Çilek, Ananas, Pirinç Patlağı,Sütlü Damla Çikolata, Beyaz Damla Çikolata, Bitter Damla Çikolata, Toz Antep Fıstığı</p> <p class="price">240 TL</p> </div>
-                <div class="product-card"> <img src="default_photo.jpg" alt="Oreo Waffle"> <h3>Oreo Waffle</h3> <p class="ingredients">Nutella, Belçika Çikolatası , Muz, Kivi, Çilek, Beyaz Damla Çikolata, Fındık Parçaları, Sütlü Damla Çikolata, Doğranmış Oreo, Bütün Oreo</p> <p class="price">250 TL</p> </div>
-                <div class="product-card"> <img src="default_photo.jpg" alt="Fındık Waffle"> <h3>Fındık Waffle</h3> <p class="ingredients">Belçika Çikolatası, Muz, Kivi, Çilek, Parça Fındık, Sütlü Damla Çikolata, Pirinç Patlağı, Bonibon</p> <p class="price">250 TL</p> </div>
-                <div class="product-card"> <img src="default_photo.jpg" alt="Antep Waffle"> <h3>Antep Waffle</h3> <p class="ingredients">Belçika çikolatası, Antep Fıstığı Çikolata, Muz, Kivi, Çilek, Toz Antep Fıstığı ,Sütlü Damla Çikolata, Pirinç Patlağı, Bonibon, Çakıl Taşı</p> <p class="price">260 TL</p> </div>
-                <div class="product-card"> <img src="Photos/doubleWaffle.png" alt="Double Waffle"> <h3>Double Waffle</h3> <p class="ingredients">Nutella,Belçika çikolatası,Beyaz Çikolata, Muz, Kivi, Çilek, Toz Antep Fıstığı, Sütlü Damla Çikolata, Bitter Damla Çikolata</p> <p class="price">260 TL</p> </div>
-                <div class="product-card"> <img src="Photos/bardakta-waffle-632-3182024-111014-PM-21943.png" alt="Bardak Waffle"> <h3>Bardak Waffle</h3> <p class="ingredients">Belçika Çikolatası,Beyaz Çikolata, Çilek, Muz, Fındık Parçaları, Toz Antep Fıstığı</p> <p class="price">150 TL</p> </div>
-            </div>
-        </section>
-        
-        <!-- Diğer Kategoriler (Kumpir, Tatlılar, İçecekler) buraya aynı şekilde devam edecek -->
-        <section id="kumpir" class="category-section">
-            <h2 class="category-title">Kumpir</h2>
-            <div class="product-grid">
-                <div class="product-card"> <img src="Photos/kumpir-yemekcom.jpg" alt="Kumpir"> <h3>Kumpir</h3> <p class="ingredients"></p> <p class="price">230 TL</p> </div>
+        <!-- SLAYT 1: KATEGORİ VİTRİNİ -->
+    
+        <section id="categories"class="category-slide" style="padding: 700px 15px 40px 15px;">
+            <div class="category-showcase" >
+                <a href="#" data-index="2" class="category-showcase-item sevilenler-bg"><span>⭐ En Sevilenler</span></a>
+                <a href="#" data-index="3" class="category-showcase-item waffle-bg"><span>Waffle</span></a>
+                <a href="#" data-index="4" class="category-showcase-item kumpir-bg"><span>Kumpir</span></a>
+                <a href="#" data-index="5" class="category-showcase-item krep-bg"><span>Krep</span></a>
+                <a href="#" data-index="6" class="category-showcase-item pastalar-bg"><span>Pastalar</span></a>
+                <a href="#" data-index="7" class="category-showcase-item sicak-icecekler-bg"><span>Sıcak İçecekler</span></a>
+                <a href="#" data-index="8" class="category-showcase-item soguk-icecekler-bg"><span>Soğuk İçecekler</span></a>
             </div>
         </section>
 
-        <section id="tatlilar" class="category-section">
-            <h2 class="category-title">Tatlılar</h2>
-             <div class="product-grid">
-                <div class="product-card"> <img src="default_photo.jpg" alt="Magnolia"> <h3>Magnolia</h3> <p class="ingredients"></p> <p class="price">200 TL</p> </div>
-                <div class="product-card"> <img src="Photos/red-velvet.webp" alt="Red Velved"> <h3>Red Velved</h3> <p class="ingredients"></p> <p class="price">170 TL</p> </div>
-                <div class="product-card"> <img src="Photos/Limonlu_Cheesecake.jpg" alt="Limonlu Cheesecake"> <h3>Limonlu Cheesecake</h3> <p class="ingredients"></p> <p class="price">150 TL</p> </div>
-                <div class="product-card"> <img src="Photos/franbuazlı.jpg" alt="Frambuazlı Cheesecake"> <h3>Frambuazlı Cheesecake</h3> <p class="ingredients"></p> <p class="price">150 TL</p> </div>
-                <div class="product-card"> <img src="Photos/tirimisu.avif" alt="Tiramisu"> <h3>Tiramisu</h3> <p class="ingredients"></p> <p class="price">160 TL</p> </div>
-                <div class="product-card"> <img src="default_photo.jpg" alt="Fıstık Bahçesi"> <h3>Fıstık Bahçesi</h3> <p class="ingredients"></p> <p class="price">180 TL</p> </div>
-                <div class="product-card"> <img src="Photos/Sansebastian2.jpg" alt="San Sebastian"> <h3>San Sebastian</h3> <p class="ingredients"></p> <p class="price">200 TL</p> </div>
-                <div class="product-card"> <img src="default_photo.jpg" alt="Ballı Cevizli"> <h3>Ballı Cevizli</h3> <p class="ingredients"></p> <p class="price">220 TL</p> </div>
+        <!-- SLAYT 2: EN SEVİLENLER MENÜSÜ -->
+        <section id="en-sevilenler" class="category-slide">
+             <div class="product-list">
+                <div class="product-card"> <img src="default_photo.jpg" alt="Bardak Waffle"> <h3>Bardak Waffle</h3> <p class="ingredients">Belçika Çikolatası,Beyaz Çikolata, Çilek, Muz...</p> <p class="price">150 TL</p> </div>
+                <div class="product-card"> <img src="Photos/kumpir-yemekcom.jpg" alt="Klasik Kumpir"> <h3>Klasik Kumpir</h3><p class="price">230 TL</p></div>
+                <div class="product-card"> <img src="Photos/doubleWaffle.png" alt="Double Waffle"> <h3>Double Waffle</h3> <p class="ingredients">Nutella,Belçika çikolatası,Beyaz Çikolata, Muz, Kivi...</p> <p class="price">260 TL</p> </div>
             </div>
         </section>
 
-        <section id="icecekler" class="category-section">
-            <h2 class="category-title">İçecekler</h2>
-            <div class="product-grid">
-                <div class="product-card"> <img src="Photos/Ice_Tea.jpg" alt="Ice Tea"> <h3>Ice Tea</h3> <p class="ingredients"></p> <p class="price">50 TL</p> </div>
-                <div class="product-card"> <img src="Photos/kutu_kola.png" alt="Kutu Kola"> <h3>Kutu Kola</h3> <p class="ingredients"></p> <p class="price">50 TL</p> </div>
-                <div class="product-card"> <img src="Photos/Kutu_Fanta.jpg" alt="Kutu Fanta"> <h3>Kutu Fanta</h3> <p class="ingredients"></p> <p class="price">50 TL</p> </div>
-                <div class="product-card"> <img src="Photos/Sıkma_Portakal_Suyu_(Mevsiminde).jpg" alt="Sıkma Portakal Suyu (Mevsiminde)"> <h3>Sıkma Portakal Suyu (Mevsiminde)</h3> <p class="ingredients"></p> <p class="price">120 TL</p> </div>
-                <div class="product-card"> <img src="Photos/Atom_içecek.png" alt="Atom (Mevsiminde)"> <h3>Atom (Mevsiminde)</h3> <p class="ingredients"></p> <p class="price">150 TL</p> </div>
-                <div class="product-card"> <img src="Photos/Sprite.jpg" alt="Sprite"> <h3>Sprite</h3> <p class="ingredients"></p> <p class="price">50 TL</p> </div>
-                <div class="product-card"> <img src="Photos/beyPazarı.png" alt="Maden Suyu"> <h3>Maden Suyu</h3> <p class="ingredients"></p> <p class="price">20 TL</p> </div>
-                <div class="product-card"> <img src="Photos/Meyveli_Maden_Suyu3.jpg" alt="Meyveli Maden Suyu"> <h3>Meyveli Maden Suyu</h3> <p class="ingredients"></p> <p class="price">35 TL</p> </div>
-                <div class="product-card"> <img src="Photos/yarımLitreSu.avif" alt="Su"> <h3>Su</h3> <p class="ingredients"></p> <p class="price">20 TL</p> </div>
+        <!-- Diğer slaytlar aynı şekilde devam ediyor -->
+        <section id="waffle" class="category-slide">
+             <div class="product-list">
+                <div class="product-card"> <img src="Photos/kendinYap.jpg" alt="Kendin Yap Waffle"> <h3>Kendin Yap Waffle</h3> <p class="ingredients">Kendi seçeceğin ürünlerle kendi lezzetini oluştur</p> <p class="price">230 TL</p> </div>
+                <div class="product-card"> <img src="default_photo.jpg" alt="Pink Waffle"> <h3>Pink Waffle</h3> <p class="ingredients">Nutella,Belçika çikolatası, Çilek ,Muz,Kivi,Çilek...</p> <p class="price">230 TL</p> </div>
+                <div class="product-card"> <img src="Photos/Kalbim_Waffle.jpg" alt="Kalbim Waffle"> <h3>Kalbim Waffle</h3> <p class="ingredients">Belçika Çikolatası, Bitter çikolata, Beyaz çikolata, Muz...</p> <p class="price">230 TL</p> </div>
+                <div class="product-card"> <img src="default_photo.jpg" alt="Oreo Waffle"> <h3>Oreo Waffle</h3> <p class="ingredients">Nutella, Belçika Çikolatası , Muz, Kivi, Çilek, Oreo...</p> <p class="price">250 TL</p> </div>
+            </div>
+        </section>
+        <section id="kumpir" class="category-slide"  style="padding: 470px 15px 40px 15px;">
+            <div class="product-list">
+                <div class="product-card"> <img src="Photos/kumpir-yemekcom.jpg" alt="Sade Kumpir"> <h3>Sade Kumpir</h3><p class="ingredients">Tereyağ, kaşar, tuz</p><p class="price">200 TL</p></div>
+                <div class="product-card"> <img src="Photos/kumpir-yemekcom.jpg" alt="Klasik Kumpir"> <h3>Klasik Kumpir</h3><p class="ingredients">Rus salatası, mısır, zeytin ve daha fazlası...</p><p class="price">230 TL</p></div>
+                <div class="product-card"> <img src="Photos/kumpir-yemekcom.jpg" alt="Tavuklu Kumpir"> <h3>Tavuklu Kumpir</h3><p class="ingredients">Tereyağ, kaşar, sotelenmiş tavuk parçaları</p><p class="price">250 TL</p></div>
+                <div class="product-card"> <img src="Photos/kumpir-yemekcom.jpg" alt="Kavurmalı Kumpir"> <h3>Kavurmalı Kumpir</h3><p class="ingredients">Tereyağ, kaşar, dana kavurma</p><p class="price">300 TL</p></div>
+                <div class="product-card"> <img src="Photos/kumpir-yemekcom.jpg" alt="Kendin Yap Kumpir"> <h3>Kendin Yap Kumpir</h3> <p class="ingredients">Malzemeleri sen seç, kendi kumpirini yarat!</p> <p class="price">240 TL</p> </div>
+            </div>
+        </section>
+        <section id="krep" class="category-slide" style="padding: 80px 15px 40px 15px;">
+             <div class="product-list">
+                <div class="product-card"> <img src="Photos/iconV2.png" alt="Çikolatalı Krep"> <h3>GELECEKTE İNŞALLAH</h3><p class="ingredients"></p><p class="price"></p></div>
+                <div class="product-card"> <img src="Photos/iconV2.png" alt="Tuzlu Krep"> <h3>GELECEKTE İNŞALLAH</h3><p class="ingredients"></p><p class="price"></p></div>
+            </div>
+        </section>
+        <section id="pastalar" class="category-slide">
+            <div class="product-list">
+                <div class="product-card"> <img src="Photos/red-velvet.webp" alt="Red Velved"> <h3>Red Velvet</h3><p class="price">170 TL</p> </div>
+                <div class="product-card"> <img src="Photos/Limonlu_Cheesecake.jpg" alt="Limonlu Cheesecake"> <h3>Limonlu Cheesecake</h3><p class="price">150 TL</p> </div>
+                <div class="product-card"> <img src="Photos/franbuazlı.jpg" alt="Frambuazlı Cheesecake"> <h3>Frambuazlı Cheesecake</h3><p class="price">150 TL</p> </div>
+                <div class="product-card"> <img src="Photos/tirimisu.avif" alt="Tiramisu"> <h3>Tiramisu</h3><p class="price">160 TL</p> </div>
+            </div>
+        </section>
+        <section id="sicak-icecekler" class="category-slide">
+            <div class="product-list">
+                <div class="product-card"> <img src="Photos/kahve.jpg" alt="Türk Kahvesi"><h3>Türk Kahvesi</h3><p class="price">50 TL</p></div>
+                <div class="product-card"> <img src="Photos/filtrekahve.jpeg" alt="Filtre Kahve"><h3>Filtre Kahve</h3><p class="price">65 TL</p></div>
+                <div class="product-card"> <img src="Photos/çay.jpg" alt="Çay"><h3>Çay</h3><p class="price">30 TL</p></div>
+            </div>
+        </section>
+        <section id="soguk-icecekler" class="category-slide">
+            <div class="product-list">
+                <div class="product-card"> <img src="Photos/Ice_Tea.jpg" alt="Ice Tea"> <h3>Ice Tea</h3><p class="price">50 TL</p> </div>
+                <div class="product-card"> <img src="Photos/kutu_kola.png" alt="Kutu Kola"> <h3>Kutu Kola</h3><p class="price">50 TL</p> </div>
+                <div class="product-card"> <img src="Photos/beyPazarı.png" alt="Maden Suyu"> <h3>Maden Suyu</h3><p class="price">20 TL</p> </div>
+                <div class="product-card"> <img src="Photos/yarımLitreSu.avif" alt="Su"> <h3>Su</h3><p class="price">20 TL</p> </div>
             </div>
         </section>
     </main>
+    
+    <button id="prevBtn" class="nav-arrow prev">&#10094;</button>
+    <button id="nextBtn" class="nav-arrow next">&#10095;</button>
 
     <script src="javaScript.js"></script>
 </body>
